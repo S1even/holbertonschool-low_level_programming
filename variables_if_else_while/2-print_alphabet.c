@@ -1,17 +1,16 @@
-#include "stdio.h"
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 
-/**
- * print_alphabet - Prints 10 times the alphabet, in lowercase.
- */
-void print_alphabet(void)
+int main(void)
 {
-	int count = 0;
-	char letter;
+	char letter = 'a';
 
-	while (count++ <= 9)
+	while (letter <= 'z')
 	{
-		for (letter = 'a'; letter <= 'z'; letter++)
-			_putchar(letter);
-		_putchar('\n');
+		putchar (letter);
+		letter++;
+		putchar("\n");
 	}
+	return (0);
 }
