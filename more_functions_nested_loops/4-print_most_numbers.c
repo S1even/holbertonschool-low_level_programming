@@ -8,7 +8,7 @@
  * Return: 0 for success.
  */
 
-void print_numbers(void)
+void print_most_numbers(void)
 {
 	int i;
 
@@ -19,5 +19,5 @@ void print_numbers(void)
 			_putchar(i + '0');
 		}
 	}
-		_putchar('\n');
+	_putchar('\n');
 }
