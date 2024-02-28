@@ -1,9 +1,12 @@
 #include "main.h"
 
 /**
- * reset_to_98
+ * reset_to_98 - entry point
+ *
  * @n : value
- * Take a pointer
+ *
+ * Description : Take a pointer
+ *
  * Return: 0 for success.
  */
 
