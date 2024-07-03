@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	for (n = 1; n < argc; n++)
 	{
-		for (number = 1; argv[number][n]; number++)
+		for (number = 0; argv[n][number]; number++)
 		{
 			if (argv[n][number] < '0' || argv[n][number] > '9')
 			{
