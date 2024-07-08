@@ -11,27 +11,27 @@
 
 char *_strdup(char *str)
 {
-	int length = 0;
-	int i = 0;
+	int length;
 	char *duplicate;
+	int i;
 
 	if (str == NULL)
 		return (NULL);
+
 	length = 0;
 
 	while (str[length] != '\0')
 		length++;
 
-	duplicate = malloc(sizeof(char) * sizeof(length + 1));
+	duplicate = malloc((length + 1) * sizeof(char));
 
 	if (duplicate == NULL)
 		return (NULL);
 
-	for (i = 0; str[i] ; i++)
+	for (i = 0; str[i]; i++)
 		duplicate[i] = str[i];
 
 	duplicate[length] = '\0';
 
 	return (duplicate);
 }
-
