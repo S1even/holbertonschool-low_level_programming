@@ -8,35 +8,43 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
+	char *str;
 	int i = 0;
-	char *str, *separator = "";
 
 	va_start(args, format);
-	while (format && format[i])
+	while (format == NULL)
 	{
-
-		if (format[i] == 'c')
-		printf("%s%c", separator, va_arg(args, int));
-		else if (format[i] == 'i')
-			printf("%s%d", separator, va_arg(args, int));
-		else if (format[i] == 'f')
-			printf("%s%f", separator, va_arg(args, double));
-		else if (format[i] == 's')
+		printf("\n");
+		return;
+	}
+	while (format[i])
+	{
+		switch (format[i])
 		{
-			str = va_arg(args, char *);
-
-			if (str == NULL)
-				str = "(nil)";
-			printf("%s%s", separator, str);
+			case 'c':
+				printf("%c", (char) va_arg(args, int));
+				break;
+			case 'i':
+				printf("%d", va_arg(args, int));
+				break;
+			case 'f':
+				printf("%f", (float) va_arg(args, double));
+				break;
+			case 's':
+				str = va_arg(args, char*);
+				if (str != NULL)
+				{
+					printf("%s", str);
+					break;
+				}
+				printf("(nil)");
+				break;
 		}
-		else
-		{
-			i++;
-			continue;
-		}
-		separator = ", ";
+		if ((format[i] == 'c' || format[i] == 'i' || format[i] == 'f' ||
+					format[i] == 's') && format[(i + 1)] != '\0')
+			printf(", ");
 		i++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
 }
